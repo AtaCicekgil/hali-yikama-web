@@ -1,0 +1,283 @@
+/* style.css */
+
+/* Google Fonts - Roboto'yu dahil et */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Genel Ayarlar */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f6f0dc; /* Genel arka plan rengi */
+    color: #333333; /* Genel metin rengi */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1, h2, h3 {
+    color: #00876a; /* Koyu teal yeşili başlıklar için */
+    font-weight: 700;
+}
+
+a {
+    color: #37b388; /* Orta koyu yeşil bağlantılar için */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #80e285; /* Canlı çimen yeşili hover için */
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* --- Üst Bar Stilleri --- */
+.top-bar {
+    background-color: #ffffff; /* Beyaz arka plan */
+    color: #607D8B; /* Gri tonu metinler için */
+    padding: 10px 0;
+    font-size: 0.85em;
+    border-bottom: 1px solid #eeeeee; /* İnce, açık gri çizgi */
+    display: flex; /* İçeriğin hizalanması için */
+    justify-content: center;
+    align-items: center;
+}
+
+.top-bar .container {
+    flex-wrap: wrap; /* Küçük ekranlarda alt alta geçiş için */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar-left span {
+    margin-right: 25px;
+    white-space: nowrap; /* Metnin tek satırda kalmasını sağlar */
+}
+
+.top-bar-left i {
+    color: #37b388; /* İkon rengi */
+    margin-right: 8px;
+}
+
+.top-bar-phone {
+    color: #333333; /* Telefon numarası rengi */
+    font-weight: bold;
+    margin-right: 20px; /* Butondan ayırmak için */
+    white-space: nowrap;
+}
+
+.top-bar-phone i {
+    color: #37b388; /* Telefon ikonu rengi */
+    margin-right: 8px;
+}
+
+.btn-top-bar {
+    display: inline-block;
+    background-color: #80e285; /* Canlı çimen yeşili */
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-top-bar:hover {
+    background-color: #37b388; /* Hover'da koyu yeşil */
+    text-decoration: none;
+}
+
+/* --- Ana Header Stilleri --- */
+.main-header {
+    background-color: #ffffff; /* Ana header arka planı beyaz */
+    padding: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Daha belirgin ama soft gölge */
+    z-index: 1000;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 2.2em;
+}
+
+.logo a {
+    color: #00876a; /* Koyu teal yeşili logo */
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.logo a:hover {
+    color: #37b388;
+}
+
+.main-nav ul {
+    display: flex;
+    position: relative;
+}
+
+.main-nav li {
+    position: relative;
+    margin-left: 35px;
+}
+
+.main-nav a {
+    color: #333333; /* Menü bağlantı rengi */
+    text-transform: uppercase;
+    font-size: 0.95em;
+    font-weight: 500;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #00876a;
+    border-bottom: 2px solid #00876a;
+}
+/* --- Dropdown Menü Stilleri --- */
+.dropdown-menu {
+    /* display: none; yerine bu özellikler ile gizlenir */
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 240px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%; /* Ana menü öğesinin hemen altında başlar */
+    left: 0;
+    border-radius: 5px;
+    padding: 10px 0;
+    border-top: 3px solid #80e285; /* Vurgu için üst çizgi */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Yumuşak geçiş */
+}
+
+/* Dropdown menü gösterildiğinde */
+.main-nav li.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Düzen */
+@media (max-width: 992px) {
+    .top-bar .container,
+    .main-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .top-bar-left, .top-bar-right {
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .top-bar-left span, .top-bar-phone, .btn-top-bar {
+        margin: 5px 0;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .main-nav li {
+        margin: 10px 0;
+        width: 100%;
+    }
+    .main-nav a {
+        padding: 5px 0;
+    }
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-top: 1px solid #eee;
+        padding-top: 5px;
+    }
+    .dropdown-menu a {
+        padding: 5px 10px 5px 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .top-bar-left span {
+        margin-right: 0; /* Küçük ekranlarda yığılmayı önlemek için */
+    }
+}
+
+/* style.css - Header Genişlemesini Engellemek İçin Ek Düzeltmeler */
+
+/* Ana navigasyon yüksekliğini sabitleyelim ve taşmayı gizleyelim */
+.main-nav {
+    height: auto; /* Otomatik yükseklik */
+    position: relative; /* Dropdown menünün doğru konumlanması için */
+}
+
+/* Dropdown menüsünün ana menüden taşmasını engellemek için */
+.main-nav li {
+    overflow: visible; /* Alt menünün kendi içinde görünür olmasını sağlar */
+}
+
+/* Mobil görünümde dropdown menüsünün davranışı */
+@media (max-width: 992px) {
+    .dropdown-menu {
+        /* Mobil'de statik konumda ve genişlik 100% olduğu için */
+        /* opacity ve visibility'i kaldırıp display: none/block kullanacağız */
+        /* çünkü mobil menülerde genellikle tıklama ile açılırlar */
+        opacity: 1; /* Mobil'de her zaman tam şeffaf */
+        visibility: visible; /* Mobil'de her zaman görünür */
+        display: none; /* Mobil'de varsayılan olarak gizli olacak */
+        transition: none; /* Mobil'de animasyon olmasın */
+    }
+
+    /* Mobil'de dropdown'ın tıklama ile açılması için (henüz JS yok ama CSS hazır olsun) */
+    /* Geçici olarak hover ile de çalışsın diye bırakabiliriz ama sonra JS'e geçeriz */
+    .main-nav li.dropdown:hover .dropdown-menu {
+        display: block; /* Mobil'de hover ile göster */
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Ana menü öğesi için mobil görünümde padding ve border düzeltmeleri */
+    .main-nav a {
+        border-bottom: none; /* Mobil'de alt çizgiye gerek yok */
+        padding: 10px 0; /* Daha iyi dokunmatik alan */
+    }
+
+    /* Alt menü bağlantılarının paddingini mobil'e göre ayarlayalım */
+    .dropdown-menu a {
+        padding: 10px 20px; /* Standart mobil padding */
+        text-align: left; /* Metni sola hizala */
+    }
+}
+
+/* Masaüstü görünümde (993px ve üzeri) tekrar opacity/visibility'e dönelim */
+@media (min-width: 993px) {
+    .dropdown-menu {
+        opacity: 0;
+        visibility: hidden;
+        display: block; /* opacity/visibility ile kontrol edildiği için block */
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .main-nav li.dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+    }
+}
